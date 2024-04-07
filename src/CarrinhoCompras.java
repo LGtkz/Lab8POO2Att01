@@ -20,6 +20,11 @@ public class CarrinhoCompras {
 
     public void realizaPagamento(PagamentoStrategy strategy){
         double total = this.calculaTotal();
-        strategy.pagar(total);
+        strategy.pagar(calculaFrete(total));
+    }
+
+    public double calculaFrete(double total){
+        double valoFinal = (total * 15) / 100;
+        return valoFinal;
     }
 }
