@@ -7,6 +7,6 @@ public class Main {
 
         PagamentoStrategy strategy = new Cartao();
 
-        carrinho.realizaPagamento(strategy);
+        carrinho.realizaPagamento(strategy, 1);
     }
 }

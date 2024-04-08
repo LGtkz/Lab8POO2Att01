@@ -18,13 +18,19 @@ public class CarrinhoCompras {
         return sum;
     }
 
-    public void realizaPagamento(PagamentoStrategy strategy){
-        double total = this.calculaTotal();
-        strategy.pagar(calculaFrete(total));
-    }
 
-    public double calculaFrete(double total){
-        double valoFinal = (total * 15) / 100;
-        return valoFinal;
+    public double calculaFrete(int tipoFrete) {
+        int frete = 0;
+        if(tipoFrete == 0)
+            frete = 34;
+        else{
+            frete = 10;
+        }
+        double total = calculaTotal();
+        return frete + total;
+    }
+    public void realizaPagamento(PagamentoStrategy strategy, int tipo){
+        double total = calculaFrete(tipo);
+        strategy.pagar(total);
     }
 }
